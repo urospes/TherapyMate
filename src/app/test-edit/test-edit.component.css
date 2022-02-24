@@ -1,0 +1,19 @@
+.card-body {
+    width: 90%;
+    margin-left: 20%;
+    height: 80%;
+}
+.testovi{
+  margin-bottom: 3.5em;
+}
+
+.test {
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+.card-body{
+    margin: 1%;
+}
+col-lg-4{
+    height: 100%;
+}

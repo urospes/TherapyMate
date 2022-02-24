@@ -1,0 +1,13 @@
+.container-fluid {
+  background: linear-gradient(155deg,#d3e8f2, #f2b2ea);
+    width: 100%;
+  }
+  .container {
+background-color: whitesmoke;
+
+    width:50%;
+  }
+
+.pozadina{
+  margin-bottom: 30%;
+}

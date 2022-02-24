@@ -1,0 +1,70 @@
+<div class="row align-items-center justify-content-center" *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div class="container-lg mt-5 border rounded-lg align-items-center justify-content-center" *ngIf="!isLoading">
+  <div class="card-body">
+    <div class="alert alert-danger text-center" *ngIf="error">
+      {{ error }}
+    </div>
+    <div class="alert alert-success text-center" *ngIf="success">
+      {{ success }}
+    </div>
+        <form [formGroup]="editTerapija" (ngSubmit)="onSubmit()" class="">
+
+
+            <div class="form-group" *ngIf="nova">
+              <mat-form-field>
+              <mat-label>Tip</mat-label>
+              <mat-select formControlName="tip" required
+            placeholder="Izaberite tip terapije">
+            <mat-option *ngFor="let tip of tipTerapija" [value]="tip.naziv">
+              {{ tip.naziv }}
+            </mat-option>
+          </mat-select>
+
+            </mat-form-field>
+            </div>
+
+            <div *ngIf="!nova">
+              <h1 *ngIf="terapija.tip">{{terapija.tip }} </h1>
+            </div>
+            <div class="form-group">
+           <mat-form-field>
+
+              <mat-label>Detalji</mat-label>
+              <textarea
+              matInput
+                cols="40" rows="5"
+                id="detalji"
+                formControlName="detalji"
+                class="form-control detalji"
+                placeholder="Unesite detalje terapije"
+                required>
+                </textarea>
+
+            <mat-error *ngIf="editTerapija.controls.detalji.invalid">Molimo Vas da unesete duži opis terapije</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+        <mat-form-field>
+
+              <mat-label>Cena po satu</mat-label>
+              <input
+              matInput
+                type="number"
+                id="cena"
+                formControlName="cena"
+                class="form-control"
+                placeholder="Unesite cenu"
+                required>
+                <mat-error *ngIf="editTerapija.controls.cena.invalid">Molimo Vas da unesete cenu</mat-error>
+          </mat-form-field>
+        </div>
+            <div  class="row align-items-center justify-content-center">
+          <button class="btn btn-primary mr-1 predaja" type="submit" [disabled]="nova && (editTerapija.controls.cena.value=='' || editTerapija.controls.detalji.value=='' || editTerapija.controls.tip.value=='')" >Sačuvaj</button>
+          <button class="btn btn-pink" (click)="onClickOtkazi()" >Otkaži</button>
+        </div>
+        </form>
+      </div>
+    </div>

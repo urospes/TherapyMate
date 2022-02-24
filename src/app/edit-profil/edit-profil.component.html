@@ -1,0 +1,160 @@
+<!-- pozadina -->
+<div
+class="row align-items-center justify-content-center"
+*ngIf="isLoading"
+>
+<app-loading-spinner></app-loading-spinner>
+</div>
+
+
+<div *ngIf="!isLoading"class="container-xxl izmena profil justify-content">
+  <div *ngIf='error' class="alert alert-danger text-center">
+    {{ error}}
+  </div>
+  <div *ngIf='success' class="alert alert-success text-center ">
+    {{ success}}
+  </div>
+<div *ngIf="!isLoading"class="container-fluid d-flex  izmena justify-content-center align-items-center forma">
+
+  <div class="container p-4 rounded">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div *ngIf='greska' class="alert alert-danger">
+        {{ greska}}
+      </div>
+      <!-- <div class="slika-conteiner">
+        <img class="slika" [src]="'./../assets/resources/new.png'"/>
+
+      <div class="form-group">
+        <label for="slika">Promeni sliku</label>
+        <input type="file" class="form-control" formControlName="slika"  accept="image/*" (change)="fileChange($event)" />
+    </div>
+  </div> -->
+  <div class="form-group">
+  <div class="slika-conteiner" >
+    <img [src]="imagePreview" class="slika">
+  </div>
+
+    <div>
+    <button class="btn btn-info" type="button" (click)="filePicker.click()">Promeni sliku</button>
+    <input type="file"name="image" #filePicker (change)="onImagePicked($event)">
+  </div>
+</div>
+    <div class="form-group">
+      <mat-form-field>
+      <label for="ime">Ime</label>
+      <input
+      matInput
+        type="text"
+        class="form-control"
+        id="ime"
+        formControlName="ime"
+      />
+    </mat-form-field>
+    </div>
+    <div class="form-group">
+    <mat-form-field>
+      <label for="prezime">Prezime</label>
+      <input
+      matInput
+        type="text"
+        class="form-control"
+        id="prezime"
+        formControlName="prezime"
+      />
+    </mat-form-field>
+    </div>
+    <!--<div class="form-group">
+      <label
+        for="terapeut"
+        *ngIf="this.klijent.getTerapeutiTerapije().length > 0"
+        >Terapeuti</label
+      >
+      <input
+        id="terapeut"
+        class="form-control"
+        *ngFor="let terapeut of klijent.getTerapeuti()"
+        [value]="getTerapeutFullName(terapeut)"
+      />
+    </div>-->
+    <div class="form-group">
+    <mat-form-field>
+      <label for="telefon">Telefon</label>
+      <input
+      matInput
+        type="text"
+        class="form-control"
+        formControlName="telefon"
+      />
+    </mat-form-field>
+    </div>
+    <div *ngIf="terapeutUlogovan && !klijentUlogovan">
+      <div class="form-group">
+      <mat-form-field>
+        <label for="specijalizacija">Specijalizacija</label>
+        <input
+        matInput
+          type="text"
+          class="form-control"
+          formControlName="specijalizacija"
+        />
+      </mat-form-field>
+      </div>
+      <div class="form-group">
+      <mat-form-field>
+        <label for="opis">Opis</label>
+        <textarea
+        matInput
+        cols="40" rows="5"
+        id="opis"
+        formControlName="opis"
+        class="form-control opis">
+        </textarea>
+      </mat-form-field>
+      </div>
+    </div>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-center"> Promena lozinke </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="form-group">
+          <mat-form-field>
+          <mat-label for="lozinka">Stara lozinka</mat-label>
+          <input
+          matInput
+            type="password"
+            class="form-control"
+            formControlName="lozinka"
+            placeholder="Unesi lozinku"
+          />
+        </mat-form-field>
+        </div>
+        <div class="form-group">
+        <mat-form-field>
+          <mat-label for="lozinka">Nova lozinka</mat-label>
+          <input
+          matInput
+            type="password"
+            class="form-control"
+            formControlName="novalozinka"
+            placeholder="Unesi novu lozinku"
+          />
+        </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+
+    <div class="form-group row justify-content-center mt-2">
+      <button  class="btn btn-primary col-xs-12 mr-1"  button="submit" [disabled]="form.controls.lozinka.value!=''&&form.controls.novalozinka.value==''">
+        Sačuvaj
+      </button>
+      <button  class="btn btn-pink col-xs-12 mr-1" (click)="otkazi()">
+        Otkaži
+      </button>
+  </div>
+  </form>
+  </div>
+  </div>
+</div>
+
+
+
+

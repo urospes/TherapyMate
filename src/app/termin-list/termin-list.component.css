@@ -1,0 +1,43 @@
+.kontejner {
+flex:flex;
+text-align: center;
+}
+.container-fluid {
+    margin-top:1%;
+}
+.alert-danger{
+    margin-top: 5%;
+}
+.obavestenjeDiv {
+    margin-right: 30%;
+    margin-left:25%;
+}
+.container-lg {
+    text-align: center;
+    margin-top: 1%;
+    padding: 5%;
+}
+.obavestenje{
+    margin-right: 30%;
+    margin-left:25%;
+}
+.naslov{
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    margin:0px;
+}
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.termini {
+    margin-bottom: 30%;
+}
+.dugme{
+max-width:  80%;
+}
+span {
+    cursor : pointer;
+}

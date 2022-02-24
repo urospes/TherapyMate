@@ -1,0 +1,24 @@
+<div class="alert alert-success text-center mt-3 gornja-o" *ngIf="success">
+  {{ success }}
+</div>
+<div class="alert alert-success text-center mt-3 gornja-o" *ngIf="error">
+  {{ error }}
+</div>
+
+<section class="container-lg border border-2 rounded-lg my-4 pozadina">
+    <div *ngIf="!isLoading">
+
+    <div class="row justify-content-start">
+      <app-admin-recenzija-item
+        class="col-lg-4 col-sm-12 my-1"
+        *ngFor="let terapeut of terapeuti; let i = index"
+        [terapeut]="terapeut"
+        (obrisana)="onPrikaziPoruku($event)"
+      ></app-admin-recenzija-item>
+    </div>
+    </div>
+</section>
+
+<div class="spinner" *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+  </div>

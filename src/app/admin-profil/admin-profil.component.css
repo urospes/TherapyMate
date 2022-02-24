@@ -1,0 +1,71 @@
+.container-md {
+    opacity: 1;
+    background-color: white;
+  }
+  .pozadina{
+    margin-bottom: 4em;
+  }
+  .slika {
+    max-width: 300px;
+    max-height: 300px;
+  }
+  .velika {
+    height: 2em;
+    width: 2em;
+  }
+  .info {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #6c757d;
+  }
+  .naslov {
+    font-size: 2rem;
+    font-weight: 500;
+    color: black;
+  }
+  .strong {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: black;
+  }
+  .card-item {
+    border: 1px solid #adb5bd;
+    cursor: pointer;
+  }
+  svg {
+      height:10%;
+      width: 10%;
+    color: #df0a66;
+  }
+  .card-subtitle {
+    color: #000814;
+    font-size: 1.1rem;
+  }
+  .card-content {
+    color: #343a40;
+  }
+  .card-item:hover {
+    background-color: #ccdbfd;
+  }
+  .card-item:hover svg {
+    color: #7b2cbf;
+  }
+  .card-item:hover .card-subtitle {
+    color: #df0a66;
+  }
+  .card-item:hover .card-content {
+    color: black;
+  }
+  mat-card{
+    border: 1px solid #c4c6ca;
+    /* background: #d6e2e9; */
+    background-color: #e2eafc;
+    cursor: pointer;
+  }
+
+  .spinner {
+    position: absolute;
+    top: 50%;
+   left: 50%;
+    transform: translate(-50%, -50%);
+  }

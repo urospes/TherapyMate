@@ -1,0 +1,31 @@
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+img {
+  width: 150px;
+  height: 150px;
+}
+mat-card {
+  border: 1px solid #c4c6ca;
+  background: linear-gradient(155deg, #c4e2f0, #f8c5f2);
+  cursor: pointer;
+}
+mat-card-subtitle {
+  color: #000814;
+  font-size: 1.1rem;
+}
+mat-card-content {
+  color: #555c61;
+}
+mat-card:hover {
+  background-color: #dee2e6;
+}
+mat-card:hover mat-card-subtitle {
+  color: #4361ee;
+}
+mat-card:hover mat-card-content {
+  color: black;
+}

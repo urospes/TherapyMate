@@ -1,0 +1,60 @@
+<div
+  class="
+    container-lg
+    mt-4
+    testovi
+    border
+    rounded-lg
+    justify-content-center
+    align-items-center
+  "
+  *ngIf="isLoading"
+>
+  <app-loading-spinner class="spinner"></app-loading-spinner>
+</div>
+<div class="alert alert-danger text-center m-1" *ngIf="error">
+  {{ error }}
+</div>
+<div class="alert alert-success text-center m-1" *ngIf="success">
+  {{ success }}
+</div>
+
+<div
+  *ngIf="!isLoading && !prazan"
+  class="container fluid justify-content-center testovi align-items-around mt-2"
+>
+  <div class="container-xxl">
+    <div
+      class="card-columns justify-content-center align-items-center vece m-0"
+      *ngIf="!prazan"
+      [ngClass]="
+        testovi.length > 4
+          ? 'veci'
+          : testovi.length == 4
+          ? 'srednje'
+          : testovi.length == 3
+          ? 'tri'
+          : testovi.length == 2
+          ? 'dva'
+          : 'jedan'
+      "
+    >
+      <mat-card class="mt-0 pt-0">
+        <app-klijent-test-item
+          class="my-1"
+          *ngFor="let testEl of testovi; let i = index"
+          [test]="testEl"
+          [terapeut]="terapeuti[i]"
+          (uradjen)="uradjeniTest($event)"
+        >
+        </app-klijent-test-item>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isLoading && prazan" class="container-lg tes border rounded-lg">
+  <div class="alert alert-danger mx-5 mr-1 text-center">
+    <div>Nemate nijedan test</div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+@media only screen and (max-width: 768px) {
+  .btn-outline-primary {
+    width: 100%;
+  }
+  .izbor {
+    width: 95%;
+  }
+}
+.container {
+  margin-top: 5%;
+}
+mat-card {
+  background-color: #edf6f9;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: rgb(13 104 136 / 13%);
+}
+mat-from-field {
+  width: 100;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.slika {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 1%;
+}
+.slika-conteiner {
+  display: flex;
+  flex-direction: row;
+}
+.forma {
+  margin-top: 30px;
+  margin-bottom: 3.5em;
+}

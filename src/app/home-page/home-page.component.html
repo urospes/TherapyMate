@@ -1,0 +1,134 @@
+<!-- <div class="telo">
+  <img
+    src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+    alt=""
+    class="pozadina"
+  />
+  <section class="text-block">
+    <h1>{{ nazivSavetovalista }}</h1>
+    <h2>{{ adresa }}</h2>
+  </section>
+</div> -->
+
+<div
+  class="row d-flex flex-column align-items-center stranica"
+  *ngIf="!isLoading"
+>
+  <div
+    class="
+      row
+      row1
+      justify-content-around
+      align-items-baseline
+      col-sm-9
+      p-2
+      m-0
+    "
+  >
+    <div class="col-md-9 col-lg-5">
+      <p class="opis px-4 pt-4 sadrzajPrimarno">
+        Psihoterapija moze da Vam pomogne da prevaziđete mnoge probleme. Ne
+        držite Vaše probleme u sebi. Ispunjen život je proces, a ne stanje.
+        Dozvolite da Vam pomognemo.
+      </p>
+    </div>
+    <div class="col-md-9 col-lg-5">
+      <p class="opis px-3 pt-3 sadrzajOpis">
+        <!-- Budite slobodni da nam se obratite. Odazvaćemo se u najkraćem roku.
+        Diskretnost i etika postulati su našeg pristupa u radu sa vama. -->
+        {{ savetovaliste.opis }}
+      </p>
+      <hr class="mt-3 mb-2" />
+      <p class="opis text-center px-3 pt-3 info">{{ savetovaliste.naziv }}</p>
+      <p class="opis text-center px-3 info">{{ savetovaliste.adresa }}</p>
+      <p class="opis text-center px-3 info">{{ savetovaliste.telefon }}</p>
+      <p class="opis text-center px-3 info">{{ savetovaliste.email }}</p>
+    </div>
+  </div>
+  <div class="row row2 m-0 p-3 justify-content-center mt-2 mb-2">
+    <div class="kartica col-md-8 col-lg-3 mx-2 mb-2">
+      <div class="row flex-column align-items-center">
+        <img
+          src="../../assets/resources/home-page-1.jpg"
+          alt=""
+          class="img-fluid rounded-circle my-2 slika mx-auto col-sm-9"
+        />
+        <div class="col-md-12">
+          <h2 class="text-center naslov">Terapeuti</h2>
+        </div>
+        <div class="col-md-8 col-lg-12 col-xl-9">
+          <p class="sadrzaj px-3 text-center mt-2 mb-3">
+            Naši terapeuti su posvećeni profesionalci, vođeni zeljom da u svakom
+            trenutku pomognu pojedincima kojima je to potrebno. Izaberite
+            terapeuta koji Vama odgovara.
+          </p>
+        </div>
+        <div class="col-md-6 mt-2 mb-3">
+          <button
+            class="btn btn-primary dugme text-center"
+            (click)="onTerapeuti()"
+          >
+            Saznaj više
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="kartica col-md-8 col-lg-3 mx-2 mb-2">
+      <div class="row flex-column align-items-center">
+        <img
+          src="../../assets/resources/home-page-2.jpg"
+          alt=""
+          class="img-fluid rounded-circle my-2 slika mx-auto col-sm-9"
+        />
+        <div class="col-md-12">
+          <h2 class="text-center naslov">Terapije</h2>
+        </div>
+        <div class="col-md-8 col-lg-12 col-xl-9">
+          <p class="sadrzaj px-3 text-center mt-2 mb-3">
+            Naše savetovalište nudi različite tipove terapija, sa prilagođenim
+            brojem seansi za svakog klijenta. U toku terapije se napredak
+            klijenata aktivno prati pomoću različitih testova.
+          </p>
+        </div>
+        <div class="col-md-6 mt-2 mb-3">
+          <button
+            class="btn btn-primary dugme text-center"
+            (click)="onTerapije()"
+          >
+            Saznaj više
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="kartica col-md-8 col-lg-3 mx-2 mb-2">
+      <div class="row flex-column align-items-center">
+        <img
+          src="../../assets/resources/home-page-3.jpg"
+          alt=""
+          class="img-fluid rounded-circle my-2 slika mx-auto col-sm-9"
+        />
+        <div class="col-md-12">
+          <h2 class="text-center naslov">Naši ciljevi</h2>
+        </div>
+        <div class="col-md-8 col-lg-12 col-xl-9">
+          <p class="sadrzaj px-3 text-center mt-2 mb-3">
+            Želimo da profesionalno savetovanje učinimo dostupunim, pogodnim i
+            priuštivim - kako bismo pomogli svakom pojedincu koji se suočava sa
+            životnim izazovima.
+          </p>
+        </div>
+        <div class="col-md-6 mt-2 mb-3">
+          <button
+            class="btn btn-primary dugme text-center"
+            (click)="onRegistracija()"
+          >
+            Registruj se
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="spinner" *ngIf="isLoading">
+  <app-loading-spinner> </app-loading-spinner>
+</div>

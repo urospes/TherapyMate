@@ -1,0 +1,55 @@
+/*.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}*/
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+img {
+  border-radius: 2rem;
+}
+
+.example-form {
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+.btn-outline-primary {
+  width: 35%;
+}
+.str {
+  margin-bottom: 3em;
+}
+@media only screen and (max-width: 992px) {
+  .btn-outline-primary {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .btn-outline-primary,
+  form,
+  mat-form-field,
+  input {
+    width: 100%;
+  }
+  form {
+    margin-top: 10%;
+  }
+}
+.nemate-nalog {
+  padding-top: 0%;
+  padding-left: 0%;
+}
+.slika {
+  height: 40%;
+  width: 40%;
+}

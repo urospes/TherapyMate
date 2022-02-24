@@ -1,0 +1,21 @@
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+p {
+  font-size: 1.5rem;
+}
+span {
+  font-size: 1.5em;
+  margin-top: 2%;
+  color: #b7094c;
+  cursor: pointer;
+}
+
+container-lg {
+  display: flex;
+  flex-wrap: wrap;
+}

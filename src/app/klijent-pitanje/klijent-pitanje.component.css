@@ -1,0 +1,50 @@
+.pitanje {
+    margin: 0px;
+    text-align:center;
+    background: none;
+}
+.tekst {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.input {
+    max-width:50px;
+}
+
+.mat-card{
+    border: 0px;
+    box-shadow: none;
+}
+.mat-form-field {
+   
+    width: 100%;
+    box-sizing: border-box;
+
+}
+.unos {
+    background-color: whitesmoke;
+}
+.h3{
+    font-size: larger;
+}
+@media (min-width: 584px) {
+    .unos {
+        columns: 10000;
+        }
+
+}
+
+@media (min-width: 1000px) {
+    .unos {
+        columns: 50;
+        }
+    
+}
+
+@media (min-width: 1200px) {
+    .unos {
+        columns: 25;
+        }
+    }

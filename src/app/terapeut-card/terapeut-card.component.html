@@ -1,0 +1,39 @@
+<mat-card class="shadow rounded-lg p-0" (click)="onCardClicked($event)">
+  <mat-card-title class="text-center">
+    <img
+      [src]="this.terapeut.getSlika()"
+      alt=""
+      class="img-fluid rounded-circle my-2"
+    />
+  </mat-card-title>
+  <mat-card-subtitle class="text-center my-3">{{
+    terapeut.getIme() + " " + terapeut.getPrezime()
+  }}</mat-card-subtitle>
+
+  <mat-card-content class="text-center">
+    <div class="infoTer">
+      <p class="card-content">{{ terapeut.getEmail() }}</p>
+      <p class="card-content">{{ terapeut.getTelefon() }}</p>
+      <p class="card-content">{{ terapeut.getSpec() }}</p>
+    </div>
+    <div class="row justify-content-center" *ngIf="porukaOtkazivanje !== null">
+      <p class="alert alert-info">
+        {{ porukaOtkazivanje }}
+      </p>
+    </div>
+    <button
+      id="akcija"
+      class="btn btn-pink my-2 mx-2"
+      (click)="onOtkaziClicked()"
+    >
+      Otkaži saradnju
+    </button>
+    <button
+      id="akcija"
+      class="btn btn-primary my-2 mx-2"
+      (click)="onOceniClicked()"
+    >
+      Oceni terapeuta
+    </button>
+  </mat-card-content>
+</mat-card>

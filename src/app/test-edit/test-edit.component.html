@@ -1,0 +1,42 @@
+<div class="alert alert-danger mt-5 text-center" *ngIf="error">
+  {{ error }}
+</div>
+<div class="alert alert-success mt-5 text-center" *ngIf="success">
+  {{ success }}
+</div>
+<div class="row mt-2  mx-2  align-items-start justify-content-center testovi">
+
+  <div class="col-lg-6">
+  <div class="card-body">
+    <div class="col-sm">
+      <div>
+        <app-pitanje-edit (pitanjeChanged)="eventHandler($event)">
+        </app-pitanje-edit>
+      </div>
+      <div class="alert alert-success" *ngIf="success">
+        {{ success }}
+      </div>
+      <hr />
+      <div class="row justify-content-center align-items-center">
+      <button class="btn btn-info mr-1" (click)="onClickSacuvaj()" [disabled]="test.pitanja.length==0">
+        Sačuvaj test
+      </button>
+      <button class="btn btn-danger mr-1" (click)="onClickOtkazi()">Otkaži</button>
+    </div>
+    </div>
+    </div>
+  </div>
+  <div class="col-lg-5 mt-3 justify-content-start align-items-start">
+  <div class="card-body">
+        <div class="row  test">
+          <app-pitanje-item
+            class="col-sm-10 mr-5"
+            *ngFor="let pitanjeEl of test.pitanja"
+            [pitanje]="pitanjeEl"
+          >
+          </app-pitanje-item>
+    </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+<mat-card
+  class="p-2"
+  (click)="onTipClicked($event)"
+  [ngClass]="isClicked ? 'kliknuto' : ''"
+>
+  <mat-card-title class="text-center my-3">{{
+    this.tip.getNaziv()
+  }}</mat-card-title>
+  <mat-card-subtitle *ngIf="isClicked">{{
+    this.tip.getOpis()
+  }}</mat-card-subtitle>
+  <div class="row justify-content-center">
+    <button class="btn btn-pink" id="vidi" (click)="onVidiTerapije()" *ngIf="isClicked">Vidi terapije</button>
+  </div>
+</mat-card>

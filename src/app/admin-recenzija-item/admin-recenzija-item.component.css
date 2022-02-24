@@ -1,0 +1,33 @@
+mat-card:hover {
+    background-color: #dee2e6;
+    cursor: pointer;
+  }
+  mat-card {
+    background: linear-gradient(155deg,#c4e2f0, #f8c5f2);
+    
+  }
+  mat-expansion-panel {
+    background-color: #e6ecf0;
+  }
+  mat-card-header {
+    background-color:whitesmoke;
+  }
+  .panel-header {
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .bolded {
+    font-weight: 700;
+    color: black;
+  }
+
+  .ocena {
+    color: #ee9b00;
+  }
+  
+.trash {
+    font-size: 1.5em;
+    margin-bottom: 10%;
+    color: #df0a66;
+    float: right;
+}

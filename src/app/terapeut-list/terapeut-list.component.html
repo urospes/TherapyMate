@@ -1,0 +1,52 @@
+<section
+  class="container-fluid border border-2 rounded-lg pozadinaa"
+  *ngIf="!isLoading"
+>
+  <div class="row justify-content-start my-3 mx-2">
+    <form action="" [formGroup]="form" (ngSubmit)="onPretragaClicked()">
+      <mat-form-field appearance="fill" class="mr-3 polje">
+        <mat-label>Sortiraj</mat-label>
+        <mat-select (selectionChange)="onSortChanged($event)">
+          <mat-option [value]="'ocena'">Po oceni</mat-option>
+          <mat-option [value]="'ime'">Po imenu</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="ml-3 polje" appearance="fill">
+        <mat-label>Pretraga</mat-label>
+        <input
+          matInput
+          placeholder="Unesite ime i prezime terapeuta"
+          name="pretraga"
+          formControlName="pretraga"
+        />
+      </mat-form-field>
+      <button class="btn btn-info dugme align-self-center" type="submit">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+          />
+        </svg>
+      </button>
+    </form>
+  </div>
+
+  <div class="row justify-content-start">
+    <h2 class="text-center" *ngIf="this.nemaTerapeuta">
+      Ne postoji uneti terapeut.
+    </h2>
+    <app-terapeut-item
+      class="col-sm-5 col-lg-3 my-1"
+      *ngFor="let terapeut of getTerpeuti()"
+      [terapeut]="terapeut"
+    ></app-terapeut-item>
+  </div>
+</section>
+<app-loading-spinner class="spinner" *ngIf="isLoading"></app-loading-spinner>

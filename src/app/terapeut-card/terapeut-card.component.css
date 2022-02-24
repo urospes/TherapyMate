@@ -1,0 +1,29 @@
+img {
+  max-width: 150px;
+  max-height: 150px;
+}
+mat-card {
+  border: 1px solid #adb5bd;
+  background-color: #e2eafc;
+  cursor: pointer;
+}
+mat-card-subtitle {
+  color: #000814;
+  font-size: 1.1rem;
+}
+mat-card-content {
+  color: #343a40;
+}
+mat-card:hover {
+  background-color: #ccdbfd;
+}
+mat-card:hover mat-card-subtitle {
+  color: #df0a66;
+}
+mat-card:hover mat-card-content {
+  color: black;
+}
+
+.infoTer {
+  height: 150px;
+}

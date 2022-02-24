@@ -1,0 +1,144 @@
+
+<div  *ngIf="isLoading">
+  <app-loading-spinner class="spinner"></app-loading-spinner>
+</div>
+<div *ngIf="!isLoading">
+<div class="alert alert-danger text-center m-1 gornja-o" *ngIf="error">
+  {{ error }}
+</div>
+<div class="alert alert-success text-center m-1 gornja-o" *ngIf="success">
+  {{ success }}
+</div>
+<div *ngIf="!isLoading">
+<div
+  *ngIf=" !prazan"
+  class="container fluid border-0 kont justify-content-center align-items-around bez"
+>
+  <div *ngIf="!klijentDodaj " class="row pocetak">
+    <div class="row justify-content-center align-items-center">
+      <button class="btn btn-info mr-1 col-xs-8" (click)="onClickNov()">
+        Dodaj novi test
+      </button>
+
+      <button *ngIf="!klijent" class="btn btn-info mr-1 col-xs-8" (click)="onClickKlijenti()">
+        Dodeli test
+      </button>
+
+      <button
+        *ngIf="klijent"
+        class="btn btn-primary mr-1 col-xs-8"
+        (click)="onClickNazad()"
+      >
+        Nazad na klijente
+      </button>
+    </div>
+  </div>
+  <div class="container-xxl border-0 p-0 m-0 bez">
+    <div class="" *ngIf="!prazan && !klijent">
+      <div class="row justify-content-center align-items-center" *ngIf="klijentDodaj">
+        <button class="btn btn-info mr-1 mt-2 col-xs-2 col-md-2" (click)="onClickNovIzKlijenta()">
+          Kreiraj novi test
+        </button>
+        <button class="btn btn-primary mr-1 mt-2 col-xs-2 col-md-2" (click)="onClickNazadIzKlijentdodaj()">
+          Nazad
+        </button>
+        </div>
+      <div
+        class="card-columns justify-content-center align-items-center vece"
+        *ngIf="!prazan"
+        [ngClass]="
+      testovi.length>4 ?
+        'veci' : testovi.length==4 ? 'srednje' : testovi.length==3 ? 'tri' : testovi.length==2 ? 'dva' : 'jedan'
+    "
+    >
+
+        <mat-card>
+          <app-test-item
+            class="my-1"
+            *ngFor="let testEl of testovi; let i = index"
+            [test]="testEl"
+            [klijent]="klijent"
+            [klijentDodaj]="klijentDodaj"
+            [klijentID]="klijentID"
+            (obrisani)="obrisaniTest($event)"
+            (dodatTest)="dodatTest($event)"
+            [broj]="i"
+          >
+          </app-test-item>
+        </mat-card>
+
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="container mt-2 kont border rounded-lg justify-content-center align-items-between" *ngIf="!isLoading"
+>
+  <div class="" *ngIf="!prazan && klijent">
+    <div
+      class="card-columns justify-content-center align-items-center"
+      *ngIf="!prazan"
+      [ngClass]="
+         testovi.length>4 ?
+      'veci' : testovi.length==4 ? 'srednje' : testovi.length==3 ? 'tri' : testovi.length==2 ? 'dva' : 'jedan'
+  ">
+      <app-test-item
+        class="card my-1"
+        *ngFor="let testEl of testovi; let i=index"
+        (dodatTest)="dodatTest($event)"
+        [test]="testEl"
+        [klijent]="klijent"
+        [klijentDodaj]="klijentDodaj"
+        [broj]="i+1"
+      >
+      </app-test-item>
+    </div>
+  </div>
+</div>
+
+<div class="container-lg border rounded-lg" *ngIf="new && !isLoading && prazan">
+  <div class="alert alert-danger mx-5 mr-1 text-center" >
+    <div> Klijentu ste već dodelili sve postojeće testove. </div>
+  </div>
+  <div  class="row pocetak">
+  <button class="btn btn-info mr-1 col-xs-2 col-md-2" (click)="onClickNovIzKlijenta()">
+    Kreiraj novi test
+  </button>
+  <button class="btn btn-primary mr-1 col-xs-2 col-md-2" (click)="onClickNazadIzKlijenta()">
+    Nazad
+  </button>
+</div>
+
+</div>
+
+<div *ngIf="!isLoading && prazan && !new && klijent " class="container-lg border rounded-lg">
+  <div class="alert alert-danger mx-5  text-center">
+    <div> Nema urađenih testova </div>
+  </div>
+  <div *ngIf="!klijentDodaj" class="row pocetak">
+    <button class="btn btn-info mr-1 col-xs-2 col-md-2" (click)="onClickNov()">
+      Dodaj novi test
+    </button>
+
+    <button
+      *ngIf="klijent"
+      class="btn btn-primary mr-1  col-xs-2 col-md-2"
+      (click)="onClickNazad()"
+    >
+      Nazad
+    </button>
+  </div>
+</div>
+<div *ngIf="!isLoading && prazan && !klijentDodaj && !klijent " class="container-lg border rounded-lg">
+  <div class="alert alert-danger mx-5 mr-1 text-center">
+    <div> Nemate kreirane testove </div>
+  </div>
+  <div  class="row pocetak">
+    <button class="btn btn-info mr-1 col-xs-2 col-md-2" (click)="onClickNov()">
+      Kreiraj novi test
+    </button>
+  </div>
+</div>
+</div>
+</div>

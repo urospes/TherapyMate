@@ -1,0 +1,63 @@
+<form [formGroup]="editPitanje" >
+
+    <div class="  flex-column  border rounded-lg justify-content-center align-items-center text-center ">
+        <div class="form-group">
+        <h1 class="mb-2">Novo tekstualno pitanje:</h1>
+        <mat-form-field>
+    <mat-label>Tekst pitanja:</mat-label>
+    <input
+    matInput
+                type="text"
+                id="tekst"
+                formControlName="tekst"
+                class="form-control">
+
+</mat-form-field>
+</div>
+    <button  class="btn btn-info col-lg-10 mb-2" (click)="onClickSacuvajTkest()" 
+    [disabled]="editPitanje.get('tekst').value==''" >Dodaj pitanje</button>
+</div>
+    <hr>
+    <div class="  flex-column  border rounded-lg justify-content-center align-items-center text-center">
+        <h1>Novo pitanje sa ponuđenim odgovorima:</h1>
+        <div class="form-group">
+    <mat-form-field>
+        <mat-label>Tekst pitanja:</mat-label>
+        <input
+        matInput
+                    type="text"
+                    id="tekst2"
+                    formControlName="tekst2"
+                    class="form-control">
+
+    </mat-form-field>
+</div>
+<div class="form-group">
+    <mat-form-field>
+            <mat-label >Dodaj novi ponuđeni odgovor:</mat-label> 
+            <div class="row gx-5 px-3"  >
+            <input 
+            matInput
+                type="text"
+                id="ponudjeni"
+                formControlName="ponudjeni"
+                class="form-control col  mr-1" >
+              
+            </div>
+    </mat-form-field>
+</div>
+    <div class="row dugmici justify-content-center align-items-around">
+        <button class="btn btn-info col-md-4  mb-1 ml-4" [disabled]="editPitanje.get('ponudjeni').value=='' || editPitanje.get('tekst2').value==''"(click)="onClickDodaj()" >Dodaj odgovor</button>
+        <button class="btn btn-danger col-md-4 mb-1 ml-4" (click)="onClickOtkazi()" >Obriši odgovore</button>
+     </div>
+        <div *ngIf="ponudjeni.length!=0" class="row justify-content-center">
+            <h3>Uneti ponuđeni odgovori:</h3>
+            <div *ngFor="let p of ponudjeni" class="col-lg-10 text-center" >
+                <label>{{p}}</label>
+            </div>
+        </div>
+        <button  class="btn btn-info mr-1 mt-1 mb-2 col-lg-10" [disabled]="ponudjeni.length<2 || editPitanje.get('tekst2').value==''" 
+         (click)="onClickSacuvajPonudjeno() " 
+     >Dodaj pitanje</button>
+    </div>
+</form>

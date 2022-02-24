@@ -1,0 +1,76 @@
+<!-- <div
+      class="row align-items-center justify-content-center"
+      *ngIf="isLoading"
+    >
+      <app-loading-spinner></app-loading-spinner>
+    </div> -->
+<mat-card class="shadow rounded-lg p-0" >
+  <mat-card-title class="text-center">
+    <img
+      [src]="klijent.getSlika()"
+      alt=""
+      class="img-fluid rounded-circle my-2"
+    />
+    <!-- <img *ngIf="!slika"
+    src="https://dental-smile.net/public/uploads/profile_png_1113533201904221555971977765.png"
+    alt=""
+    class="img-fluid rounded-circle my-2"
+  /> -->
+  </mat-card-title>
+  <mat-card-subtitle class="text-center my-3">
+    {{ klijent.getIme() }} {{ klijent.getPrezime() }}
+  </mat-card-subtitle>
+  <mat-card-content class="text-center">
+    <div class="infoTer">
+      <p class="card-content">{{ klijent.getEmail() }}</p>
+      <p class="card-content">{{ klijent.getTelefon() }}</p>
+    </div>
+  </mat-card-content>
+
+  <mat-card-content>
+
+    <div *ngIf="!isLoading">
+      <div class="card-subtitle mt-2 text-center" *ngFor="let terapijaEl of terapije">
+       <h3>{{ terapijaEl.naziv }} </h3>
+        <mat-progress-bar
+          mode="determinate"
+          [value]="terapijaEl.odradjeno / terapijaEl.ukupno * 100"
+          class="my-2"
+        >
+        </mat-progress-bar>
+        <h2>{{terapijaEl.odradjeno }}/{{terapijaEl.ukupno}}</h2>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title class="text-center"> Promeni broj seansi </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="row justify-content-center p-1 m-1">
+          <span class="col-3" (click)="onClickSmanji(terapijaEl)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-dash" viewBox="0 0 16 16">
+              <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+            </svg>
+          </span>
+          <input
+          [(ngModel)]="promena"
+          [ngClass]="nevalidno?'crveno':''"
+              type="number"
+              min="0"
+              class="form-control col-6 text-center"
+              placeholder="Unos broja">
+              <span class="col-3" (click)="onClickPovecaj(terapijaEl)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-plus" viewBox="0 0 16 16">
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+              </span>
+            </div>
+        </mat-expansion-panel>
+      </div>
+      <div class="row justify-content-center align-items-center " >
+        <div class="col-xs-3 ">
+          <button class="btn btn-info mr-1 mt-3" (click)="onClickPrikaziTestove()" style="margin-bottom: 5%;">
+            Upravljaj testovima
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

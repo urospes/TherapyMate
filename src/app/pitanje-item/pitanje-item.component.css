@@ -1,0 +1,27 @@
+.pitanje {
+    text-align:center;
+    background: none;
+    box-shadow: none;
+    background: linear-gradient(155deg,#ccdbfd, #92d6cd);
+}
+.tekst {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.input {
+    max-width:50px;
+}
+
+.sirina {
+width: 100%;
+}
+.unos {
+    background-color: whitesmoke;
+    width: 100%;
+}
+
+.input{
+    color : black;
+}

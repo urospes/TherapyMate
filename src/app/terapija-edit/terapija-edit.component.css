@@ -1,0 +1,11 @@
+.card-body {
+    width: 60%;
+    margin-left: 20%;
+    height: 80%;
+}
+.detalji {
+    height: 100px;
+}
+mat-form-field {
+    width:100%;
+}

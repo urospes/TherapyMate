@@ -1,0 +1,74 @@
+<mat-card
+class="card-item border-dark my-2 shadow p-3 "
+  [ngClass]="
+    termin.t.getSlobodan()
+      ? 'slobodan'
+      : termin.t.getPotvrdjen()
+      ? 'zauzet'
+      : 'nepotvrdjen'
+  "
+>
+  <div class="card-body"
+  (mouseenter) = "isHovered = true;"
+(mouseleave) = "isHovered = false;">
+    <h4 class="card-title">{{ naslov }} </h4>
+    <div *ngIf="simple">
+      <h4> <b> Datum: </b>{{ datum }}</h4>
+    </div>
+    <h4 class="card-title"> <b> Vreme: </b>{{ termin.t.getVreme() }} </h4> 
+    <h4 class="card-title"> <b> Trajanje: </b> {{ termin.t.geTrajanje() }} </h4>
+    <div *ngIf="isHovered">
+      <h4 class="card-title">{{ termin.info.klijent }}</h4>
+      <p class="card-text">{{ termin.info.terapija}}</p>
+    </div>
+    
+<hr>
+
+
+
+  <div *ngIf="simple">
+    <div *ngIf="termin.t.getSlobodan() && !prethodni">
+      <button type="button" class="btn btn-pink" (click)="onClickIzbrisi()">
+        Obriši
+      </button>
+    </div>
+    <div *ngIf="!termin.t.getSlobodan() && !prethodni" >
+      <button type="button" class="btn btn-pink" (click)="onClickOtkazi()">
+        Otkaži
+      </button>
+    </div>
+
+
+    <div
+      *ngIf="
+        !termin.t.getSlobodan() &&
+        termin.t.getPotvrdjen() &&
+        prethodni
+      " class="row justify-content-around"
+    >
+      <button type="button" class="btn btn-pink dugme col-xs-12 mb-2" (click)="onClickZavrsen()">
+        Održan termin
+      </button>
+      <button type="button" class="btn btn-pink dugme col-xs-12" (click)="onClickPropusten()">
+        Propušten termin
+      </button>
+    </div>
+    <div
+      *ngIf="
+        !termin.t.getSlobodan() &&
+        !termin.t.getPotvrdjen() &&
+        prethodni
+      " class="row justify-content-around"
+    >
+      <button type="button" class="btn btn-pink dugme col-xs-12 mb-2" (click)="onClickZavrsen()">
+       Izbriši
+      </button>
+    </div>
+  </div>
+  <div *ngIf="!simple && !termin.t.getSlobodan() && !termin.t.getPotvrdjen()">
+    <fa-icon class="check fa-2x"[icon]="faCheck" (click)="onClickPotvrdi()"></fa-icon>
+    <fa-icon class="cancel fa-2x" [icon]="faTimes" (click)="onClickOdbij()"></fa-icon>
+  </div>
+</div>
+
+</mat-card>

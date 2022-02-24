@@ -1,0 +1,50 @@
+<mat-card class="shadow rounded-lg p-3">
+  <div class="naslov">
+    <mat-card-title class="text-center">
+      {{ terapija.getTip() }}
+    </mat-card-title>
+  </div>
+  <mat-card-content class="text-center">
+    <p class="card-content">Cena po satu : {{ terapija.getCena() }}</p>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="text-center"> Detalji </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p class="text-left">{{ terapija.getDetalji() }}</p>
+    </mat-expansion-panel>
+    <p class="text-center mt-3" *ngIf="pretplacen">
+      Napredak klijenta
+      <span
+        >{{ "  " + terapija.getOdradjenoTerapija() }} /
+        {{ terapija.getUkupnoTerapija() }}</span
+      >
+    </p>
+    <mat-progress-bar
+      mode="determinate"
+      [value]="odrediProgres()"
+      class="my-2"
+      *ngIf="pretplacen"
+    >
+    </mat-progress-bar>
+
+    <div class="row justify-content-center" *ngIf="poruka !== null">
+      <p class="alert alert-warning">
+        {{ poruka }}
+      </p>
+    </div>
+    <button
+      class="btn btn-pink my-3 mx-2"
+      *ngIf="pretplacen"
+      (click)="onOtkaziTerapiju()"
+    >
+      Otkaži terapiju
+    </button>
+    <button
+      class="btn btn-primary my-3 mx-2"
+      *ngIf="!pretplacen"
+      (click)="onIzaberiTerapiju()"
+    >
+      Izaberi terapiju
+    </button>
+  </mat-card-content>
+</mat-card>

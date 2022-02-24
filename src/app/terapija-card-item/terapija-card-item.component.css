@@ -1,0 +1,30 @@
+.terapeut-name {
+  font-size: 1.3rem;
+  color: black;
+}
+.terapeut-name:hover {
+  cursor: pointer;
+  /*color: #4361ee;*/
+  color: #df0a66;
+}
+.visina {
+  height: 50px;
+}
+mat-card {
+  background-color: #e2eafc;
+  border: 1px solid #adb5bd;
+}
+.spec {
+  color: #343a40;
+}
+mat-card:hover {
+  background-color: #ccdbfd;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #df0a66;
+}
+
+p {
+  word-wrap: break-word;
+}

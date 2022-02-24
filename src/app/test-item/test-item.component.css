@@ -1,0 +1,35 @@
+.mat-card {
+    padding: 0px;
+    margin-bottom: 10px;
+    background: linear-gradient(155deg,#ccdbfd, #92d6cd);
+    display: inline-block;
+    width: 100%;
+
+}
+.card{
+    border : 0px;
+}
+.mat-card-title{
+    font-size: x-large;
+    font-weight:400;
+}
+span {
+    font-size: 1.5em;
+    color: black;
+    float: right;
+    align-self: flex-end;
+    margin-right:1%;
+    margin-bottom:1%;
+    cursor: pointer;
+}
+.mat-card{
+    background:linear-gradient(155deg,#c4dfeb, #decbf2);
+}
+mat-card-title{
+   margin-top:1%;
+    text-align: center;
+    margin-left: 3%;
+}
+.klijent{
+    width: max-content;
+}

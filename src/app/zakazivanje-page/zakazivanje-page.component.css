@@ -1,0 +1,32 @@
+.podnaslov {
+  font-size: 2rem;
+  font-weight: 300;
+}
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.kliknuto {
+  border: 1px solid darkred;
+  border-radius: 2%;
+}
+.dugme {
+  width: 20%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.zakazivanje {
+  margin-bottom: 3.5em;
+}
+.obavestenjeDel {
+  cursor: pointer;
+}
+.kont{
+  background-color: #e2eafc;
+}

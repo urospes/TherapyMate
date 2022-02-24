@@ -1,0 +1,215 @@
+<section *ngIf="!isLoading" class="zakazivanje">
+  <div class="container-lg">
+    <div
+      class="row justify-content-center alert my-1 pr-1"
+      *ngFor="let obavestenje of this.obavestenja; let pos = index"
+      [ngClass]="
+        obavestenje.includes('potvrdio') ? 'alert-success' : 'alert-danger'
+      "
+    >
+      <h3 class="text-center my-auto">{{ obavestenje }}</h3>
+      <button class="btn ml-auto obavestenjeDel" (click)="onXClick(pos)">
+        X
+      </button>
+    </div>
+  </div>
+  <section id="zakazani" class="container-lg">
+    <h3
+      class="text-center mt-4 mb-2 podnaslov"
+      *ngIf="this.zakazaniTermini.length === 0"
+    >
+      Nemate zakazane termine !
+    </h3>
+    <h3
+      class="text-center mt-4 mb-2 podnaslov"
+      *ngIf="this.zakazaniTermini.length > 0"
+    >
+      Zakazani termini
+    </h3>
+    <section class="my-3">
+      <div class="row justify-content-around align-items-center">
+        <app-termin-klijent
+          class="col-sm-4 my-3"
+          *ngFor="let ter of this.zakazaniTermini"
+          [termin]="ter"
+          [basicView]="false"
+        ></app-termin-klijent>
+      </div>
+    </section>
+  </section>
+  <div class="row alert alert-danger text-center" *ngIf="this.porukaNeuspesno">
+    {{ porukaNeuspesno }}
+  </div>
+  <section
+    class="container-lg border kont rounded-lg"
+    *ngIf="!promenaTerminiLoading && promenaClicked"
+  >
+    <h3 class="text-center my-2">
+      Menjate termin koji je zakazan za
+      {{
+        this.terminKojiSeMenja.getDatumCustomFormat() +
+          " u " +
+          terminKojiSeMenja.getVreme() +
+          " sati."
+      }}
+    </h3>
+    <h3 class="text-center my-2">
+      Izaberite novi termin kod terapeuta
+      {{
+        " " +
+          this.terminKojiSeMenja.getImeTerapeuta() +
+          " , za terapiju : " +
+          this.terminKojiSeMenja.getNazivTipa()
+      }}
+    </h3>
+    <div class="row">
+      <app-termin-klijent
+        class="col-4 col-sm-3 my-2"
+        [basicView]="true"
+        *ngFor="let terminn of terminiPromena; let i = index"
+        [termin]="terminn"
+        [terminZaPromenu]="true"
+        (click)="onPromenjenClicked(i)"
+        [kliknuto]="kliknutiPromena[i]"
+      >
+      </app-termin-klijent>
+    </div>
+    <div class="row alert alert-danger text-center" *ngIf="this.porukaGreska">
+      {{ porukaGreska }}
+    </div>
+    <div class="row justify-content-center my-3">
+      <button class="btn btn-primary dugme mr-2" (click)="promeniTermin()">
+        Potvrdite promenu
+      </button>
+      <button
+        class="btn btn-pink dugme ml-2"
+        (click)="this.promenaClicked = false"
+      >
+        Otkaži promenu
+      </button>
+    </div>
+  </section>
+  <div
+    class="row justify-content-center align-items-center"
+    *ngIf="promenaTerminiLoading"
+  >
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+  <section id="novo-zakazivanje" class="container-lg kont border rounded-lg my-2">
+    <h3 class="text-center my-3 podnaslov">Zakazivanje novog termina</h3>
+    <div class="alert alert-danger text-center" *ngIf="this.porukaZakazivanje">
+      {{ porukaZakazivanje }}
+    </div>
+    <div class="row justify-content-center" *ngIf="!zakazivanjeClicked">
+      <button
+        class="btn btn-lg btn-primary my-2"
+        (click)="onZakazivanjeClicked()"
+      >
+        Zakažite termin
+      </button>
+    </div>
+
+    <div class="row justify-content-center my-3" *ngIf="zakazivanjeLoading">
+      <div class="spinner2">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+    </div>
+
+    <div
+      class="row justify-content-around align-items-center"
+      *ngIf="zakazivanjeClicked && !zakazivanjeLoading"
+    >
+      <div class="col-sm-3 align-self-start my-2">
+        <div class="row flex-column">
+          <div class="col-sm-12">
+            <h3 class="text-center mb-1">Prvo izaberite terapeuta</h3>
+            <mat-form-field appearance="fill">
+              <mat-label>Vasi terapeuti</mat-label>
+              <mat-select (selectionChange)="onTerapeutChanged($event)">
+                <mat-option
+                  *ngFor="let terapeut of terapeutiTerapije"
+                  [value]="terapeut.idTerapeuta"
+                  >{{ terapeut.getImeTerapeuta() }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-12">
+            <h3 class="text-center mb-1">Izaberite terapiju</h3>
+            <mat-form-field appearance="fill">
+              <mat-label
+                *ngIf="
+                  this.terapijeTerapeuta.length > 0 || !idSelektovanogTerapeuta
+                "
+              >
+                Terapije
+              </mat-label>
+              <mat-label
+                *ngIf="
+                  this.terapijeTerapeuta.length === 0 && idSelektovanogTerapeuta
+                "
+              >
+                Nemate terapije kod ovog terapeuta
+              </mat-label>
+              <mat-select (selectionChange)="onTerapijaChanged($event)">
+                <mat-option
+                  *ngFor="let terapija of terapijeTerapeuta"
+                  [value]="terapija.idTerapije"
+                  >{{ terapija.naziv }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-9 align-items-start" *ngIf="slobodniTermini">
+        <h3
+          class="text-center m-0"
+          *ngIf="
+            this.idSelektovanogTerapeuta &&
+            this.slobodniTermini.length > 0 &&
+            !terminiLoading
+          "
+        >
+          Izaberite jedan od slobodnih termina
+        </h3>
+        <h3
+          class="text-center m-0"
+          *ngIf="
+            this.idSelektovanogTerapeuta &&
+            this.slobodniTermini.length === 0 &&
+            !this.terminiLoading
+          "
+        >
+          Ovaj terapeut trenutno nema slobodne termine
+        </h3>
+
+        <div class="row" *ngIf="!terminiLoading">
+          <app-termin-klijent
+            class="col-4 col-sm-3 my-2"
+            [basicView]="true"
+            [promena]="false"
+            *ngFor="let terminn of slobodniTermini; let i = index"
+            [termin]="terminn"
+            [kliknuto]="kliknutiSlobodni[i]"
+            (click)="onSlobodanClicked(i)"
+          >
+          </app-termin-klijent>
+        </div>
+      </div>
+      <button
+        class="btn btn-primary btn-lg mx-3 mt-4 mb-3"
+        (click)="zakaziTermin()"
+      >
+        Zakaži termin
+      </button>
+    </div>
+  </section>
+</section>
+
+<div class="spinner" *ngIf="this.isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>

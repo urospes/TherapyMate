@@ -1,0 +1,106 @@
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+.kont{
+  margin-bottom: 4em;
+}
+
+.pocetak{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    justify-content: center;
+}
+.alert-danger{
+    margin-top: 5%;
+}
+.container.div.container.fluid {
+    text-align: center;
+    margin-top: 1%;
+    padding: 0%;
+    border-width: 0;
+}
+.card{
+    border: 0px;
+    border-width: 0px;
+}
+
+.app-test-item {
+    display: block;
+}
+
+@media (min-width: 584px) {
+    .card-columns {
+       column-count:1;
+        }
+
+}
+
+@media (min-width: 800px) {
+    .card-columns {
+        column-count:2;
+        }
+
+}
+@media (min-width: 1000px ) {
+    .card-columns {
+        column-count:3;
+        width:auto;
+        }
+}
+@media (min-width: 1400px) {
+    .card-columns {
+        column-count:3;
+        width:auto;
+        }
+    }
+.div.container.fluid {
+    width: 100%;
+    padding: 0%;
+    margin:0%;
+}
+
+    .jedan {
+        column-count:1;
+        width:auto;
+        }
+
+    .dva {
+        column-count:2;
+        width:auto;
+        }
+
+
+/* .vece {
+    column-count:7;
+    width:auto;
+    }
+
+.tri {
+    column-count:3;
+    width:auto;
+}
+.dva {
+    column-count:2;
+    width:auto;
+}
+.jedan {
+    column-count:1;
+    width:auto;
+} */
+.mat-card {
+    box-shadow: none;
+}
+.spinner {
+    position: absolute;
+    top: 50%;
+   left: 50%;
+    transform: translate(-50%, -50%);
+  }
+.gornja-o {
+    margin-left: 10%;
+    margin-right: 10%;
+}

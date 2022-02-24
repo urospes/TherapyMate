@@ -1,0 +1,35 @@
+<form action="" [formGroup]="form" (ngSubmit)="onOcenaSubmit()" class="forma">
+  <mat-card class="d-flex flex-column align-items-center">
+    <mat-form-field appearance="fill">
+      <mat-label>Ocena</mat-label>
+      <input
+        matInput
+        type="number"
+        max="5"
+        min="1"
+        formControlName="ocena"
+        name="ocena"
+        required
+      />
+      <mat-error *ngIf="form.invalid">
+        Morate uneti ocenu izmedju 1 i 5
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Komentari</mat-label>
+      <textarea
+        matInput
+        formControlName="komentarField"
+        name="komentarField"
+      ></textarea>
+      <mat-error *ngIf="form.invalid"> Morate uneti komentar </mat-error>
+    </mat-form-field>
+    <div class="alert alert-danger" *ngIf="porukaOcenjivanje">
+      {{ porukaOcenjivanje }}
+    </div>
+    <div class="alert alert-success" *ngIf="porukaPotvrda">
+      {{ porukaPotvrda }}
+    </div>
+    <button type="submit" class="btn btn-primary">Oceni</button>
+  </mat-card>
+</form>

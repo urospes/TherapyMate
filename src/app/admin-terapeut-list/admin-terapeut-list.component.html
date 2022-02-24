@@ -1,0 +1,22 @@
+<section
+  class="container-lg border border-2 rounded-lg pozadina"
+  *ngIf="!isLoading"
+>
+  <div class="alert alert-success text-center" *ngIf="success">
+    {{ success }}
+  </div>
+  <div class="alert alert-success text-center" *ngIf="error">
+    {{ error }}
+  </div>
+  <div class="row justify-content-start">
+    <app-korisnik-item
+      class="col-lg-4 col-sm-12 my-1"
+      *ngFor="let terapeut of terapeuti; let i = index"
+      [terapeut]="terapeut"
+      [odobren]="odobreni[i]"
+      (korisnikDeleted)="onKorisnikDel($event)"
+      (korisnikOdobren)="onKorisnikOdobren($event)"
+    ></app-korisnik-item>
+  </div>
+</section>
+<app-loading-spinner class="spinner" *ngIf="isLoading"></app-loading-spinner>

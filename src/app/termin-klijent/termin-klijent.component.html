@@ -1,0 +1,53 @@
+<mat-card class="text-center" [ngClass]="odrediBoju()" *ngIf="!basicView">
+  <mat-card-title>{{ termin.getDatumCustomFormat() }}</mat-card-title>
+  <mat-card-title class="my-2">Vreme : {{ termin.getVreme() }}</mat-card-title>
+  <mat-card-title class="my-2"
+    >Trajanje : {{ termin.getTrajanje() }}</mat-card-title
+  >
+  <mat-card-subtitle class="my-3 poruka" [ngClass]="potvrdjenClass()">{{
+    isPotvrdjen()
+  }}</mat-card-subtitle>
+  <mat-card-subtitle class="my-2">{{
+    termin.getNazivTipa()
+  }}</mat-card-subtitle>
+  <mat-card-content>
+    <h4 class="my-1">Terapeut :</h4>
+    <h4 class="my-1">{{ termin.getImeTerapeuta() }}</h4>
+    <h4 class="my-1">Broj telefona : {{ termin.getBrTerapeuta() }}</h4>
+    <div class="row justify-items-center text-center" *ngIf="poruka">
+      {{ poruka }}
+    </div>
+    <div class="row align-items-center justify-content-around">
+      <button class="btn btn-pink col-md-5 mb-1 mt-4" (click)="onOtkaziTermin()" *ngIf="!istekao">
+        Otkaži
+      </button>
+      <button
+        class="btn btn-primary col-md-5 mb-1 mt-4"
+        (click)="onPromeniTerminClicked()"
+        *ngIf="!istekao"
+      >
+        Promeni
+      </button>
+      <div class="mess row justify-content-center" *ngIf="istekao">
+        <h4 class="col-sm-10 my-2 text-center p-0 alert-warning rounded">
+          Nije moguće otkazati termin na dan održavanja.
+        </h4>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card
+  class="text-center izbor"
+  *ngIf="basicView"
+  (click)="onTerminZaZakazivanjeClicked()"
+  [ngClass]="kliknuto ? 'alert-warning' : ''"
+>
+  <mat-card-title class="text-center">{{
+    termin.getDatumCustomFormat()
+  }}</mat-card-title>
+  <mat-card-title class="text-center"
+    >Vreme : {{ termin.getVreme() }}</mat-card-title
+  >
+  <mat-card-subtitle> Trajanje : {{ termin.getTrajanje() }} </mat-card-subtitle>
+</mat-card>

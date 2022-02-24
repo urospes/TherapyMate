@@ -1,0 +1,47 @@
+.slobodan {
+  background: linear-gradient(155deg, #d5fced, #a4b9e9);
+}
+.zauzet {
+  background: linear-gradient(155deg, #fdd3ef, #fd60a4);
+}
+.nepotvrdjen {
+  background: linear-gradient(155deg, rgb(252, 218, 230), #bf9dc0);
+}
+.zauzet:hover {
+  background: linear-gradient(155deg, #fdd3ef, #c92c70);
+}
+.slobodan:hover {
+  background: linear-gradient(155deg, #d5fced, #68bed1);
+}
+.nepotvrdjen:hover {
+  background: linear-gradient(155deg, #f3def3, #bd88c0);
+}
+
+.mat-card {
+  text-align: center;
+  align-self: center;
+}
+.mat-title {
+  display: flex;
+}
+
+.check.cancel {
+  font-size: 1.5em;
+  margin-bottom: 10%;
+}
+.check {
+  color: rgb(0, 128, 105);
+  float: left;
+  margin-left: 15%;
+  cursor : pointer;
+}
+.cancel {
+  color: #da2774;
+  float: right;
+  margin-right: 15%;
+  cursor : pointer;
+}
+.dugme {
+  color: white;
+  width: 70%;
+}

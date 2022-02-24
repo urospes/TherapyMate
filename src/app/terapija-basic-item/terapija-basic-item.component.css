@@ -1,0 +1,21 @@
+mat-card-title {
+  font-size: 1.1rem;
+}
+.naslov {
+  height: 50px;
+}
+
+mat-card {
+  border: 1px solid #adb5bd;
+  background-color: #e2eafc;
+}
+mat-card:hover {
+  background-color: #ccdbfd;
+}
+mat-card-subtitle {
+  color: #000814;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #df0a66;
+}

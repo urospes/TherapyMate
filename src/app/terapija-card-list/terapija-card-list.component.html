@@ -1,0 +1,29 @@
+<section class="container-lg mt-5 lista" *ngIf="!isLoading">
+  <h2
+    class="text-center mt-3"
+    *ngIf="this.terapije.length > 0 && !this.basicView"
+  >
+    Vaše terapije
+  </h2>
+  <h2 class="text-center mt-3" *ngIf="this.terapije.length === 0 && !basicView">
+    Ne posećujete nijednu terapiju
+  </h2>
+  <div
+    class="row justify-content-center"
+    *ngIf="this.terapije.length === 0 && !this.basicView"
+  >
+    <button class="btn btn-primary" (click)="onNoTerapijeClicked()">
+      IZABERI TERAPIJU
+    </button>
+  </div>
+  <div class="row justify-content-center">
+    <app-terapija-card-item
+      class="col-md-6 my-3"
+      *ngFor="let ter of terapije"
+      [terapija]="ter"
+    ></app-terapija-card-item>
+  </div>
+</section>
+<div class="spinner" *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>

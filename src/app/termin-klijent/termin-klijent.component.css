@@ -1,0 +1,28 @@
+mat-card {
+  border: 1px solid #adb5bd;
+}
+.zuto {
+  /* background: linear-gradient(155deg, rgb(252, 218, 230), #bf9dc0); */
+  background-color: rgb(255, 243, 205);
+}
+.zeleno {
+  /* background: linear-gradient(155deg, #fdd3ef, #fd60a4); */
+  background-color: rgb(212, 237, 218);
+}
+.izbor mat-card-title {
+  font-size: 1rem;
+}
+.izbor:hover {
+  cursor: pointer;
+}
+.poruka {
+  height: 30px;
+}
+.potvrdjen {
+  color: green;
+  font-weight: 450;
+}
+.nepotvrdjen {
+  color: red;
+  font-weight: 450;
+}

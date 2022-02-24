@@ -1,0 +1,26 @@
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.infoOcena {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.infoOcena span {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.odustani svg {
+  color: #e63946;
+  width: 30px;
+  height: 30px;
+}
+.odustani svg:hover {
+  color: #ae2012;
+  cursor: pointer;
+}
+.lista {
+  margin-bottom: 3.5em;
+}

@@ -1,0 +1,24 @@
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.pozadinaa {
+  background-color: #a9d6e5;
+  margin-bottom:3em;
+}
+mat-form-field {
+  background-color: white;
+}
+.polje {
+  width: 11em;
+}
+.dugme {
+  height: 85%;
+  margin-bottom: 17px;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  margin-bottom: -1.25em;
+}

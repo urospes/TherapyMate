@@ -1,0 +1,54 @@
+.container-md {
+  opacity: 1;
+  background-color: white;
+}
+.slika {
+  max-width: 200px;
+  max-height: 200px;
+}
+.velika {
+  height: 2em;
+  width: 2em;
+}
+.info {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #6c757d;
+}
+.strong {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: black;
+}
+.pozadina{
+  margin-bottom: 3.5em;
+}
+.card-item {
+  border: 1px solid #adb5bd;
+  background-color: #e2eafc;
+  cursor: pointer;
+}
+svg {
+  color: #ff006e;
+}
+.card-subtitle {
+  color: #000814;
+  font-size: 1.1rem;
+}
+.card-content {
+  /*color: #6c757d;*/
+  color: #343a40;
+}
+.card-item:hover {
+  /*background-color: #dee2e6;*/
+  background-color: #ccdbfd;
+}
+.card-item:hover svg {
+  color: #7b2cbf;
+}
+.card-item:hover .card-subtitle {
+  color: #df0a66;
+}
+.card-item:hover .card-content {
+  color: black;
+}

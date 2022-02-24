@@ -1,0 +1,25 @@
+<mat-card class = " pt-0 px-1 m-0 p-0  text-center pitanje justify-content-center align-items-between">
+<div class="tekst" >
+<h3>{{pitanje.tekst}}</h3>
+<div [ngSwitch]="pitanje.tip" clas="m-1 p-1">
+    <div  *ngSwitchCase="'ponudjeni'"  >
+        <div  *ngFor="let odgovor of pitanje.ponudjeniOdgovori">
+            <label for="{{odgovor}}" >
+                <input  type="radio" [name]="pitanje.tekst" [value]="odgovor" [(ngModel)]="pitanje.izabranOdgovor"
+                > {{odgovor}}
+            </label>
+        </div>
+     </div>
+     <div *ngSwitchCase="'tekstualno'" >
+        <mat-form-field >
+        <textarea class="unos" matInput cols="40" rows="5" type='text'  [(ngModel)]="pitanje.izabranOdgovor" 
+        ></textarea>
+        </mat-form-field>
+     </div>
+</div>
+
+</div>
+
+
+</mat-card>
+

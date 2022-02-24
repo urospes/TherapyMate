@@ -1,0 +1,47 @@
+<section class="container-lg mt-3 border rounded-lg lista" *ngIf="!isLoading">
+  <h2 class="text-center mt-3" *ngIf="this.terapeuti.length > 0">
+    Vaši terapeuti
+  </h2>
+  <h2 class="text-center mt-3" *ngIf="this.terapeuti.length === 0">
+    Nemate izabrane terapeute
+  </h2>
+  <div class="row justify-content-center" *ngIf="this.terapeuti.length === 0">
+    <button class="btn btn-primary" (click)="onNoTerapeutiClicked()">
+      Izaberi terapeuta
+    </button>
+  </div>
+  <div class="row justify-content-center">
+    <app-terapeut-card
+      class="col-md-4 my-3"
+      *ngFor="let ter of terapeuti"
+      [terapeut]="ter"
+    ></app-terapeut-card>
+  </div>
+</section>
+<div class="spinner" *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<section
+  class="container-lg mt-3 rounded-lg p-0 mb-3"
+  *ngIf="!isLoading && oceniClicked"
+>
+  <div class="text-center infoOcena my-2">
+    Ocenjujete terapeuta : <span>{{ this.fullNameOcenjivanogTerapeuta }}</span
+    ><span class="odustani ml-4" (click)="ugasiOcene()"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-x-square-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"
+        /></svg
+    ></span>
+  </div>
+  <app-recenziranje
+    [terapeutId]="this.idOcenjivanogTerapeuta"
+  ></app-recenziranje>
+</section>

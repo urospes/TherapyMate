@@ -1,0 +1,52 @@
+<mat-card class="shadow rounded-lg p-0">
+  <mat-card-title class="text-center">
+    <img
+      *ngIf="terapeut"
+      [src]="terapeut.getImgPath()"
+      alt=""
+      class="img-fluid rounded-circle my-2"
+    />
+    <img
+      *ngIf="klijent"
+      [src]="klijent.getSlika()"
+      alt=""
+      class="img-fluid rounded-circle my-2"
+    />
+  </mat-card-title>
+  <mat-card-subtitle class="text-center my-3">
+    {{ ime }} {{ prezime }}
+  </mat-card-subtitle>
+  <mat-card-content class="text-center">
+    <div class="infoTer">
+      <p class="card-content">{{ email }}</p>
+      <p class="card-content">{{ telefon }}</p>
+    </div>
+  </mat-card-content>
+  <mat-card-content *ngIf="terapeut" class="text-center mt-0">
+    <div class="infoTer">
+      <p class="card-content">{{ specijalizacija }}</p>
+      <p class="card-content">{{ opis }}</p>
+    </div>
+  </mat-card-content>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-info mr-1"
+        *ngIf="!odobren"
+        (click)="onClickOdobri()"
+        style="margin-bottom: 5%"
+      >
+        Odobri korisnika
+      </button>
+    </div>
+    <div class="col-xs-12">
+      <button
+        class="btn btn-pink mr-1"
+        (click)="onClickObrisi()"
+        style="margin-bottom: 5%"
+      >
+        Obriši korisnika
+      </button>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,31 @@
+
+<mat-card class="shadow rounded-lg p-3 " 
+(mouseenter) = "isHovered = true;"
+(mouseleave) = "isHovered = false;">
+  <mat-card-title class="text-center">
+    {{ terapija.tip }}
+  <mat-card-content class="text-center">
+    <p class="card-content">Cena po satu: {{ terapija.cena }}</p>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class=""> Detalji </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p class="text-wrap text-left">{{ terapija.detalji}}</p>
+    </mat-expansion-panel>
+    <div class="row justify-content-center align-items-center" *ngIf = "isHovered">
+      <div class="col-xs-8 justify-content-center align-items-center">
+    <button
+    class="btn btn-pink my-3 mx-2"
+    (click)="onClickIzbrisi()"
+  >
+  Obriši terapiju
+  </button>
+  <button
+    class="btn btn-info my-3 mx-2"
+    (click)="onClickAzuriraj()"
+  >
+   Ažuriraj terapiju
+  </button>
+  </div>
+    </div>
+  </mat-card-content>

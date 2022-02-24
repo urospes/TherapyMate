@@ -1,0 +1,60 @@
+<mat-card class="border rounded-lg pb-0 shadow text-white my-2">
+  <mat-card-header class="align-items-center p-1 mt-1 mb-2 rounded">
+    <mat-card-title class="my-0 text-center">
+      {{ terapeut.getIme() + " " + terapeut.getPrezime() }}
+    </mat-card-title>
+    <img
+      mat-card-avatar
+      class="img-fluid avatar"
+      [src]="this.terapeut.getSlika()"
+    />
+  </mat-card-header>
+  <mat-card-content class="public-content px-0 text-center mb-1">
+    <div class="ocena bolded">
+      <span class="mr-2"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-star-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+          /></svg
+      ></span>
+      <span>{{ showOcena() }}</span>
+    </div>
+    <div>
+      <span class="bolded">{{
+        terapeut.getBrKlijenata() +
+          "  " +
+          klijentiPadez(terapeut.getBrKlijenata())
+      }}</span>
+    </div>
+    <div>
+      <span class="bolded">{{
+        terapeut.getBrTerapija() +
+          "  " +
+          terapijePadez(terapeut.getBrTerapija())
+      }}</span>
+    </div>
+    <mat-expansion-panel class="mt-2">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="mx-auto panel-header">
+          Tipovi terapija
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div
+        class="terapija border-bottom border-2"
+        *ngFor="let terapija of terapeut.getTipoviTerapija()"
+      >
+        {{ terapija }}
+      </div>
+    </mat-expansion-panel>
+    <button class="btn btn-info px-4 py-2 my-2" (click)="onCardClicked()">
+      Detalji
+    </button>
+  </mat-card-content>
+</mat-card>

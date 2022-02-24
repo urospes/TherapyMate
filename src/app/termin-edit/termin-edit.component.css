@@ -1,0 +1,12 @@
+.my {
+    display: flex;
+    flex-direction: row;
+}
+.card-body {
+    width: 60%;
+    margin-left: 20%;
+    height: 80%;
+}
+mat-form-field {
+    width: 100%;
+}

@@ -1,0 +1,58 @@
+.section1 {
+  background-color: rgb(152, 179, 206);
+  /*background-color: #e2eafc;*/
+}
+.slika {
+  max-height: 370px;
+}
+
+.larger {
+  font-size: 1.1rem;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+.textdark {
+  color: rgb(24, 56, 87);
+}
+
+.largest {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 420;
+}
+
+.subDugme {
+  min-width: 150px;
+  width: 40%;
+}
+
+h2 {
+  font-weight: 420;
+  letter-spacing: 1px;
+  font-size: 3.5rem;
+  line-height: 1.2;
+}
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.recenzija {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.zuta {
+  color: #ee9b00;
+}
+.container-fluid {
+  margin-bottom: 3.5em;
+}
+.nema {
+  font-size: 1.2rem;
+}
+.spanOcena {
+  font-size: 1.3rem;
+}

@@ -1,0 +1,69 @@
+<div class="container">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light topnav">
+    <a class="navbar-brand" href="#">TherapyMate</a>
+
+    <ul class="nav navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home" style="cursor: pointer"
+          >Pocetna <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item active">
+        <a
+          class="nav-link"
+          routerLink="/terapeutView/terapije"
+          style="cursor: pointer"
+          >Terapije</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a
+          class="nav-link"
+          routerLink="/terapeutView/klijenti"
+          style="cursor: pointer"
+          >Klijenti</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a
+          class="nav-link"
+          routerLink="/terapeutView/testovi"
+          style="cursor: pointer"
+          >Testovi</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a
+          class="nav-link"
+          routerLink="/terapeutView/termini"
+          style="cursor: pointer"
+          >Termini</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a
+          class="nav-link"
+          routerLink="/terapeutView/profil"
+          style="cursor: pointer"
+          >Profil</a
+        >
+      </li>
+    </ul>
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Trazi"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Trazi
+        </button>
+        <button class="btn btn-primary" (click)='logout()'>
+          Odjavi se
+        </button>
+      </form>
+    </nav>
+  </nav>
+</div>

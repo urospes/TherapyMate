@@ -1,0 +1,85 @@
+<section
+  class="container-lg border rounded-lg pozadina mt-4"
+  *ngIf="!isLoading"
+>
+  <h2 class="text-center mt-3 naslov">Tipovi terapija koje nudimo</h2>
+
+  <div class="row justify-content-center">
+    <form action="" [formGroup]="form" (ngSubmit)="onPretragaClicked()">
+      <mat-form-field class="ml-3 polje" appearance="fill">
+        <mat-label>Pretraga</mat-label>
+        <input
+          matInput
+          placeholder="Unesite naziv terapije"
+          name="pretraga"
+          formControlName="pretraga"
+        />
+      </mat-form-field>
+      <button class="btn btn-info dugme align-self-center" type="submit">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+          />
+        </svg>
+      </button>
+    </form>
+  </div>
+
+  <div class="row justify-content-center">
+    <h2 class="text-center" *ngIf="nemaTerapija">
+      Ne postoji uneti tip terapije.
+    </h2>
+    <app-tip-terapije-card
+      class="col-md-12 my-1"
+      *ngFor="let tipp of tipovi; let i = index"
+      [tip]="tipp"
+      [isClicked]="cardClicked[i]"
+      (click)="onKliknutiTip(i)"
+    ></app-tip-terapije-card>
+  </div>
+</section>
+<section
+  class="container-lg border rounded-lg my-5"
+  *ngIf="!isLoading && terapijePoTipu"
+>
+  <div class="spinner2" *ngIf="tipListLoading">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <p class="text-center m-0 p-3" *ngIf="!this.tipListLoading && this.isClicked">
+    Tip terapije : {{ this.tipNaslov }}
+  </p>
+  <p
+    class="text-center m-0 p-3"
+    *ngIf="this.terapijePoTipu.length === 0 && !this.tipListLoading"
+  >
+    Trenutno nemamo nove terapije u ponudi
+  </p>
+  <div
+    class="row justify-content-center"
+    *ngIf="this.isClicked && this.terapijePoTipu.length !== 0"
+  >
+    <div class="col-sm-11">
+      <app-terapija-card-list
+        [loadOnStart]="false"
+        [terapije]="this.terapijePoTipu"
+        [allowDel]="false"
+        [basicView]="true"
+        *ngIf="!this.tipListLoading"
+      >
+      </app-terapija-card-list>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <button class="btn btn-pink" (click)="onNaVrhClicked()">Nazad na vrh</button>
+  </div>
+</section>
+<div class="spinner" *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>

@@ -1,0 +1,20 @@
+.input{
+    width: auto;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+.dugmici {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    padding: 2.5%;
+}
+mat-form-field {
+    width: 80%;
+    margin: 2%;
+}
+border {
+    padding: 1%;
+}

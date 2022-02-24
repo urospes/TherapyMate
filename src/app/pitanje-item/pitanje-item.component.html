@@ -1,0 +1,33 @@
+<mat-card class = " border  border-light pt-0 px-1  mt-3 p-0 shadow text-black pitanje align-middle "
+(mouseenter) = "isHovered = true;"
+(mouseleave) = "isHovered = false;">
+<div class="tekst align-middle justify-content-center align-items-center" >
+<h3 class="naslov">{{pitanje.tekst}}</h3>
+<div [ngSwitch]="pitanje.tip" class="m-1 p-1 sirina">
+    <div  *ngSwitchCase="'ponudjeni'"  >
+        <div  *ngFor="let odgovor of pitanje.ponudjeniOdgovori">
+            <label for="{{odgovor}}">
+                <input type="radio" [disabled]="klijent"  [name]="pitanje.tekst" [value]="odgovor" [checked]='odgovor==pitanje.izabranOdgovor? "checked" : ""'> {{odgovor}}
+            </label>
+        </div>
+     </div>
+     <div *ngSwitchCase="'tekstualno'"  class="container sirina">
+         <mat-form-field *ngIf="klijent" class="sirina">
+            <textarea  matInput  type='text' readonly [value]="pitanje.izabranOdgovor" class="unos" ></textarea>
+        
+        </mat-form-field>
+        
+     </div>
+
+</div>
+</div>
+<div *ngIf="edit">
+    <hr>
+    <button class="btn btn-success" (click)="onClickIzmeni()" >Izmeni pitanje</button>
+    <button class="btn btn-danger" (click)="onClickIzbrisi()" >Izbrisi pitanje</button>
+
+</div>
+</mat-card>
+
+
+

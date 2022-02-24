@@ -1,0 +1,14 @@
+.container-lg {
+    text-align: center;
+    margin-top: 1%;
+    padding: 5%;
+}
+.alert-danger{
+    margin-top: 1%;
+}
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

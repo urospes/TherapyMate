@@ -1,0 +1,25 @@
+mat-card:hover {
+  background-color: #ccdbfd;
+  cursor: pointer;
+}
+mat-card {
+  border: 1px solid #adb5bd;
+  background-color: #e2eafc;
+}
+mat-card-header {
+  background-color: #013a63;
+}
+.panel-header {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.bolded {
+  font-weight: 700;
+  color: black;
+}
+.terapija {
+  background-color: #a2d2ff;
+}
+.ocena {
+  color: #ee9b00;
+}

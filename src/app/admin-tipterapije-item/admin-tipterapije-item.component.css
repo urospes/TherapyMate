@@ -1,0 +1,27 @@
+mat-card {
+  border: 1px solid #c4c6ca;
+  cursor: pointer;
+  background-color: #caf0f8;
+}
+mat-card:hover {
+  background-color: #90e0ef;
+}
+mat-card:hover mat-card-title {
+  color: #590d22;
+}
+mat-card-title {
+  color: #b7094c;
+}
+mat-card-subtitle {
+  color: black;
+}
+
+.mat-card-content {
+  font-size: 1.5em;
+  margin-bottom: 10%;
+  color: black;
+  float: right;
+}
+.mat-card-title{
+  text-align: center;
+}

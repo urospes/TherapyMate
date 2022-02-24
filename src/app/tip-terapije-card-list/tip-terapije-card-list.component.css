@@ -1,0 +1,24 @@
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.spinner2 {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+p {
+  font-size: 1.5rem;
+}
+.naslov {
+  font-size: 1.6rem;
+}
+.dugme {
+  height: 75%;
+  margin-bottom: 17px;
+}
+.pozadina {
+  margin-bottom: 3.5em;
+}

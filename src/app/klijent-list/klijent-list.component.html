@@ -1,0 +1,28 @@
+<section class="container-lg my-3 border rounded-lg" *ngIf="isLoading">
+  <app-loading-spinner class="spinner"></app-loading-spinner>
+</section>
+
+<section class="container-lg my-3 border rounded-lg" *ngIf="!isLoading && !prazan">
+  <div *ngIf='error' class="alert alert-danger text-center mt-3">
+    {{ error}}
+  </div>
+  <div *ngIf='success' class="alert alert-succes text-center mt-3">
+    {{ success}}
+  </div>
+  <h2 class="text-center mt-3" *ngIf="this.klijenti.length > 0">
+    Vaši klijenti
+  </h2>
+    <div class="row justify-content-center">
+      <app-klijent-item class="col-md-4 my-3"
+      *ngFor="let klijentEl of klijenti" [klijent]="klijentEl"
+      (result)="obavestenje($event)">
+      </app-klijent-item>
+    </div>
+    <hr>
+</section>
+
+<section class="container-lg my-3 border rounded-lg" *ngIf="prazan">
+<div class="alert alert-danger mx-5 my-5 text-center" >
+  <div> Nemate nijednog klijenta</div>
+</div>
+</section>
